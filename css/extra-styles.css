@@ -1,0 +1,53 @@
+:root{
+    --color-scheme: #0d6efd;
+}
+
+body{
+    background-color: #aaaaaa;
+}
+
+main{
+    background-color: #ffffff;
+}
+
+.main-line{
+    opacity: 100%;
+    border: 2px solid var(--color-scheme);
+}
+
+@media(min-width: 576px){
+    main{
+        padding-top: 16px;
+        padding-bottom: 16px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border-radius: 5px;
+    }
+}
+
+.section-content{
+    height: 0px;
+    overflow: hidden;
+}
+
+.section-switch{
+    display: block;
+    cursor: pointer;
+}
+
+.show-checkbox{
+    display: none;
+}
+
+.show-checkbox:checked + .section-content{
+    height: auto;
+}
+
+.svg-graph{
+    background-color: lightgray;
+}
+
+footer{
+    padding: 32px;
+    text-align: center;
+}

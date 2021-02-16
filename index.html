@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto M06 UF2: Gráficos con SVG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link href="./css/extra-styles.css" rel="stylesheet">
+</head>
+<body>
+    <main id="main-content" class="container">
+        <h1>Proyecto M06 UF2: Gráficos con SVG</h1>
+        <hr class="main-line">
+        <section>
+            <h2>Gráfico</h2>
+            <hr>
+            <div style="text-align: center;">
+                <svg class="svg-graph" id="svg-graph" preserveAspectRatio="xMidYMid meet" width="80%" viewBox="0 0 640 360">
+                    <line x1="0" y1="0" x2="0" y2="100%" style="stroke:rgb(0,0,0);stroke-width:2" />
+                    <line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+                    <!--<rect x="20%" y="5%" width="5%" height="40%"/>
+                    <rect x="30%" y="5%" width="5%" height="50%"/>
+                    <rect x="40%" y="5%" width="5%" height="60%"/>-->
+                </svg>
+            </div>
+        </section>
+        <section>
+            <label class="section-switch" for="options">
+                <h2>
+                    Opciones
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z"/>
+                    </svg>
+                </h2>
+                <hr>
+            </label>
+            <input type="checkbox" class="show-checkbox" id="options" checked/>
+            <div class="section-content">
+                <form id="options-form">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="vertical">Vertical</option>
+                        <option value="horizontal">Horizontal</option>
+                    </select>
+                </form>
+            </div>
+        </section>
+        <section>
+            <label class="section-switch" for="datos">
+                <h2>
+                    Datos
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z"/>
+                    </svg>
+                </h2>
+                <hr>
+            </label>
+            <input type="checkbox" class="show-checkbox" id="datos" checked/>
+            <div class="section-content">
+                <form id="options-form">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="vertical">Vertical</option>
+                        <option value="horizontal">Horizontal</option>
+                    </select>
+                </form>
+            </div>
+        </section>
+        <hr class="main-line">
+        <footer>
+            <h4>Proyecto M06 UF2: Gráficos con SVG</h4>
+            <p>Oriol Martínez</p>
+            <p>William Marchant</p>
+        </footer>
+    </main>
+</body>
+</html>
