@@ -25,6 +25,10 @@ main{
     }
 }
 
+section{
+    margin-bottom: 50px;
+}
+
 .section-content{
     height: 0px;
     overflow: hidden;
@@ -33,6 +37,10 @@ main{
 .section-switch{
     display: block;
     cursor: pointer;
+}
+
+.section-switch:hover{
+    background-color: #e7e7e7;
 }
 
 .show-checkbox{
