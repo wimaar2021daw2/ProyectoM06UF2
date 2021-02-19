@@ -59,3 +59,24 @@ footer{
     padding: 32px;
     text-align: center;
 }
+
+.h-auto{
+    overflow: hidden;
+    height: auto;
+}
+
+.div-50{
+    width: 50%;
+}
+
+.div-R{
+    float: right;
+}
+
+.div-L{
+    float: left;
+}
+
+.form-box{
+    padding: 8px;
+}

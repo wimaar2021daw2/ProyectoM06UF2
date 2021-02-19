@@ -15,16 +15,6 @@
         <h1>Proyecto M06 UF2: Gráficos con SVG</h1>
         <hr class="main-line">
         <section>
-            <h2>Gráfico</h2>
-            <hr>
-            <div style="text-align: center;">
-                <svg class="svg-graph" id="svg-graph" preserveAspectRatio="xMidYMid meet" width="80%" viewBox="0 0 640 360">
-                    <line x1="10%" y1="0" x2="10%" y2="95%" style="stroke:rgb(0,0,0);stroke-width:2" />
-                    <line x1="10%" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
-                </svg>
-            </div>
-        </section>
-        <section>
             <label class="section-switch" for="options">
                 <h2>
                     Opciones
@@ -34,13 +24,30 @@
                 </h2>
                 <hr>
             </label>
-            <input type="checkbox" class="show-checkbox" id="options" checked/>
+            <input type="checkbox" class="show-checkbox" id="options"/>
             <div class="section-content">
-                <h5>Tipo de gráfico:</h5>
+                <h5>Orientación</h5>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option value="vertical">Vertical</option>
                     <option value="horizontal">Horizontal</option>
                 </select>
+                <h5>Tipo de datos</h5>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option value="integer">Enteros</option>
+                    <option value="float">Decimales</option>
+                    <option value="porcentaje">Porcentaje %</option>
+                    <option value="moneda">Moneda</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <h2>Gráfico de barras</h2>
+            <hr>
+            <div style="text-align: center;">
+                <svg class="svg-graph" id="svg-graph" preserveAspectRatio="xMidYMid meet" width="80%" viewBox="0 0 640 360">
+                    <line x1="10%" y1="0" x2="10%" y2="95%" style="stroke:rgb(0,0,0);stroke-width:2" />
+                    <line x1="10%" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+                </svg>
             </div>
         </section>
         <section>
@@ -55,10 +62,29 @@
             </label>
             <input type="checkbox" class="show-checkbox" id="datos" checked/>
             <div class="section-content">
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option value="vertical">Vertical</option>
-                    <option value="horizontal">Horizontal</option>
-                </select>
+                <form id="elementAdd" method="POST" class="form-box">
+                    <div class="mb-3 ">
+                        <label for="nombre" class="form-label">Nombre del campo</label>
+                        <input type="text" class="form-control" id="nombre" name="name" placeholder="Nombre del campo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="valor" class="form-label">Valor</label>
+                        <input type="number" class="form-control" id="valor" name="value" placeholder="Valor" required>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Añadir">
+                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre de campo</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataShow">
+                    </tbody>
+                </table>
             </div>
         </section>
         <hr class="main-line">
