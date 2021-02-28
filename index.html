@@ -14,7 +14,7 @@
     <main id="main-content" class="container">
         <h1>Proyecto M06 UF2: Gráficos con SVG</h1>
         <hr class="main-line">
-        <section>
+        <section st>
             <label class="section-switch" for="options">
                 <h2>
                     Opciones
@@ -27,17 +27,17 @@
             <input type="checkbox" class="show-checkbox" id="options"/>
             <div class="section-content">
                 <h5>Orientación</h5>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option value="vertical">Vertical</option>
-                    <option value="horizontal">Horizontal</option>
+                <select id="orientation" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option id="orientation-vertical" value="vertical">Vertical</option>
+                    <option id="orientation-horizontal" value="horizontal">Horizontal</option>
                 </select>
                 <h5>Tipo de datos</h5>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option value="integer">Enteros</option>
-                    <option value="float">Decimales</option>
-                    <option value="porcentaje">Porcentaje %</option>
-                    <option value="moneda">Moneda</option>
+                <select id="dataType" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option id="dataType-numeric" value="numeric">Numérico</option>
+                    <option id="dataType-porcentaje" value="porcentaje">Porcentaje %</option>
                 </select>
+                <h5>Valor máximo</h5>
+                <input type="number" min="5" class="form-control" id="maxValue" placeholder="Valor máximo" required>
             </div>
         </section>
         <section>
@@ -69,9 +69,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="valor" class="form-label">Valor</label>
-                        <input type="number" class="form-control" id="valor" name="value" placeholder="Valor" required>
+                        <input type="number" min="0" class="form-control" id="valor" name="value" placeholder="Valor" required>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Añadir">
+                    <input class="btn btn-primary" id="addData" type="submit" value="Añadir">
                 </form>
                 <table class="table">
                     <thead>
@@ -79,6 +79,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nombre de campo</th>
                             <th scope="col">Valor</th>
+                            <th scope="col">Color</th>
                             <th scope="col">Handle</th>
                         </tr>
                     </thead>

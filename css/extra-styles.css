@@ -49,6 +49,7 @@ section{
 
 .show-checkbox:checked + .section-content{
     height: auto;
+    padding: 8px;
 }
 
 .svg-graph{
