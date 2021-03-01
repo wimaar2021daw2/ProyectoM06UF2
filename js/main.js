@@ -1,10 +1,39 @@
 import { Barra, webDataLoad } from './modules/prototypes.js';
 import { data, mostrarDatos, delData, setSaveData } from './modules/data.js';
+import { ejes, mostrarValores } from './modules/svg.js';
 
 
 function main(){
+    let docOrientation = document.getElementById('orientation');
+    let docDataType = document.getElementById('dataType');
+    let docMaxValue = document.getElementById('maxValue');
+    let svgGraph = document.getElementById('svg-graph');
 
+    webDataLoad();
     loadObjects();
+
+    function drawGraph(){
+        let setter = true;
+        let type = true;
+
+        if(docOrientation.value == 'vertical'){
+            setter = true;
+        }else if(docOrientation.value == 'horizontal'){
+            setter = false;
+        }
+
+        if(docDataType.value == 'numeric'){
+            type = true;
+        }else if(docDataType.value == 'porcentaje'){
+            type = false;
+        }
+
+        svgGraph.innerHTML = '';
+        svgGraph.innerHTML += ejes(setter);
+        svgGraph.innerHTML += mostrarValores(docMaxValue.value, setter, type);
+    }
+
+    drawGraph();
 
     function detectaBoton(){
         let deleteBTN = document.getElementById('dataShow').querySelectorAll('button');
@@ -32,8 +61,6 @@ function main(){
             });
         }
     }
-
-    detectarElementos();
 
     function detectarElementos(){
         detectaColor();
@@ -80,6 +107,19 @@ function main(){
         detectarElementos();
         setSaveData();
     });
+
+    docOrientation.addEventListener('input', drawGraph);
+    docDataType.addEventListener('input', drawGraph);
+
+    docMaxValue.addEventListener('input', ()=>{
+        data.length = 0;
+        localStorage.setItem('data', JSON.stringify(data));
+        mostrarDatos(document.getElementById('dataShow'));
+        drawGraph();
+    });
+
+    detectarElementos();
+    disableForm();
 }
 
 function addData(barra){
@@ -104,6 +144,4 @@ function loadObjects(){
         generateObjects(JSON.parse(localStorage.getItem('data')));
     }
 }
-
-window.addEventListener('load', webDataLoad, true);
 window.addEventListener('load', main, true);
