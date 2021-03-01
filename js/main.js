@@ -31,6 +31,7 @@ function main(){
         svgGraph.innerHTML = '';
         svgGraph.innerHTML += ejes(setter);
         svgGraph.innerHTML += mostrarValores(docMaxValue.value, setter, type);
+        svgGraph.innerHTML += mostrarBarras(docMaxValue.value, setter);
     }
 
     drawGraph();
@@ -45,6 +46,7 @@ function main(){
                     setSaveData();
                     disableForm();
                     detectarElementos();
+                    drawGraph();
                 });
             });
         }
@@ -57,6 +59,7 @@ function main(){
                 element.addEventListener('input', ()=>{
                     data[parseInt(element.dataset.index)].color = element.value;
                     setSaveData();
+                    drawGraph();
                 });
             });
         }
@@ -106,6 +109,7 @@ function main(){
         disableForm();
         detectarElementos();
         setSaveData();
+        drawGraph();
     });
 
     docOrientation.addEventListener('input', drawGraph);
@@ -143,5 +147,31 @@ function loadObjects(){
         localStorage.setItem('data', JSON.stringify(data));
         generateObjects(JSON.parse(localStorage.getItem('data')));
     }
+}
+
+function mostrarBarras(max, setter=true){
+    max = parseFloat(max);
+    let svgString = '';
+    let i = 1;
+
+    if(!setter) i = 8.5;
+
+    for(let item of data){
+        let percentage = item.valor/max*100;
+        let heightWidth = (72*percentage)/100;
+        if(setter){
+            svgString += `
+                <rect width="5%" height="${heightWidth}%" x="${i*10+5}%" y="${90-heightWidth}%" fill="${item.color}"></rect>
+            `;
+            i++;
+        }else{
+            svgString += `
+                <rect width="${heightWidth}%" height="5%" x="10%" y="${i*10-5}%" fill="${item.color}"></rect>
+            `;
+            i--;
+        }
+    }
+
+    return svgString;
 }
 window.addEventListener('load', main, true);
