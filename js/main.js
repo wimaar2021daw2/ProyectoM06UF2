@@ -29,9 +29,9 @@ function main(){
         }
 
         svgGraph.innerHTML = '';
+        svgGraph.innerHTML += mostrarBarras(docMaxValue.value, setter);
         svgGraph.innerHTML += ejes(setter);
         svgGraph.innerHTML += mostrarValores(docMaxValue.value, setter, type);
-        svgGraph.innerHTML += mostrarBarras(docMaxValue.value, setter);
     }
 
     drawGraph();
