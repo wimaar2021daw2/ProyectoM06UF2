@@ -1,6 +1,6 @@
 import { Barra, webDataLoad } from './modules/prototypes.js';
 import { data, mostrarDatos, delData, setSaveData } from './modules/data.js';
-import { ejes, mostrarValores } from './modules/svg.js';
+import { ejes, mostrarValores, dlImage } from './modules/svg.js';
 
 
 function main(){
@@ -176,4 +176,6 @@ function mostrarBarras(max, setter=true){
 
     return svgString;
 }
+
+window.addEventListener('load', dlImage, true);
 window.addEventListener('load', main, true);

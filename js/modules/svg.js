@@ -1,3 +1,40 @@
+export function dlImage(){
+    let fileType = document.getElementById('fileType');
+    let dlBTN = document.getElementById('dln-btn');
+    let SVG = document.getElementById('svg-graph');
+    let canvas  = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    let image = new Image();
+    
+    canvas.width = 640;
+    canvas.height = 360;
+
+    dlBTN.addEventListener('click', ()=>{
+        let xml = new XMLSerializer();
+        let svgxml = xml.serializeToString(SVG);
+        let svgBlob = new Blob([svgxml], {type: 'image/svg+xml;charset=UTF-8'});
+        let url = URL.createObjectURL(svgBlob);
+        let download = document.createElement('a');
+        let fileName = 'graph';
+
+        if(fileType.value == 'svg'){
+            download.setAttribute('href', url);
+            download.setAttribute('download', fileName);
+            download.click();
+        }else if(fileType.value == 'png'){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            image.src = url;
+            image.onload = function(){
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                url = canvas.toDataURL();
+                download.setAttribute('href', url);
+                download.setAttribute('download', fileName);
+                download.click();
+            }
+        }
+    });
+}
+
 export function ejes(setter=true){
     let svgEjes = `
         <line x1="10%" y1="0" x2="10%" y2="90%" style="stroke:rgb(0,0,0);stroke-width:2" />
