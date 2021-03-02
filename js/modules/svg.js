@@ -11,7 +11,10 @@ export function dlImage(){
 
     dlBTN.addEventListener('click', ()=>{
         let xml = new XMLSerializer();
-        let svgxml = xml.serializeToString(SVG);
+        let SVGclone = SVG.cloneNode(true);
+        SVGclone.setAttribute('width', '640');
+        SVGclone.setAttribute('height', '360');
+        let svgxml = xml.serializeToString(SVGclone);
         let svgBlob = new Blob([svgxml], {type: 'image/svg+xml;charset=UTF-8'});
         let url = URL.createObjectURL(svgBlob);
         let download = document.createElement('a');
@@ -24,6 +27,7 @@ export function dlImage(){
         }else if(fileType.value == 'png'){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             image.src = url;
+            console.log(image);
             image.onload = function(){
                 ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
                 url = canvas.toDataURL();

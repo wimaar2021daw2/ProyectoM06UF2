@@ -82,3 +82,9 @@ footer{
 .form-box{
     padding: 8px;
 }
+
+@media(max-width: 768px){
+    .svg-graph{
+        width: 100%;
+    }
+}
