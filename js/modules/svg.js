@@ -44,7 +44,7 @@ export function mostrarValores(value, setter=true, type=true){
             if(i == 0) result = 0;
             if(!type) result += '%';
             svgNumbers += `
-                <text x="5%" y="${a}%" font-size="12">${result}</text>
+                <text text-anchor="end" x="7%" y="${a}%" font-size="12">${result}</text>
             `;
             a -= 90/5;
         }

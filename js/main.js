@@ -162,7 +162,7 @@ function mostrarBarras(max, setter=true){
         if(setter){
             svgString += `
                 <rect width="5%" height="${heightWidth}%" x="${i*10+5}%" y="${90-heightWidth}%" fill="${item.color}"></rect>
-                <text x="${i*10+5}%" y="95%" font-size="12">${item.nombre}</text>
+                <text text-anchor="middle" x="${i*10+7.5}%" y="95%" font-size="12">${item.nombre}</text>
             `;
             i++;
         }else{
