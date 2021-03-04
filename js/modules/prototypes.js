@@ -4,6 +4,7 @@ export var Barra = function(nombre, valor, color){
     this.color = color;
 }
 
+//funció per pujar les opcions seleccionades per l'usuari
 export function webDataLoad(){
     var orientation = localStorage.getItem('orientation');
     var dataType = localStorage.getItem('dataType');

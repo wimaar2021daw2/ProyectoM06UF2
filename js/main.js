@@ -11,7 +11,7 @@ function main(){
 
     webDataLoad();
     loadObjects();
-
+ //funció per crear el gráfic de la manera que ha escollit l'usuari a les opcions
     function drawGraph(){
         let setter = true;
         let type = true;
@@ -36,6 +36,7 @@ function main(){
 
     drawGraph();
 
+//Funció per detectar el botó "añadir" 
     function detectaBoton(){
         let deleteBTN = document.getElementById('dataShow').querySelectorAll('button');
         if(deleteBTN.length > 0){
@@ -51,7 +52,7 @@ function main(){
             });
         }
     }
-
+ //funció per aplicar al svg el color seleccionat per l'usuari
     function detectaColor(){
         let inputColor = document.getElementById('dataShow').querySelectorAll('input[type="color"]');
         if(inputColor.length > 0){
@@ -64,12 +65,12 @@ function main(){
             });
         }
     }
-
+//Detectem els elements
     function detectarElementos(){
         detectaColor();
         detectaBoton();
     }
-
+//En cas de que el valor introduït sigui major que el valor máxim seleccionat, el valor introduit s'iguala al máxim seleccionat
     function dataMaxSet(number){
         let max = parseFloat(document.getElementById('maxValue').value);
         if(number > max){
@@ -132,6 +133,7 @@ function addData(barra){
     }
 }
 
+//funció per crear objectes amb les dades introduïdes
 function loadObjects(){
     function generateObjects(savedData){
         savedData.forEach(element => {
@@ -148,7 +150,7 @@ function loadObjects(){
         generateObjects(JSON.parse(localStorage.getItem('data')));
     }
 }
-
+ //funció per crear les barres del gráfic amb svg agafant les dades introduïdes per l'usuari
 function mostrarBarras(max, setter=true){
     max = parseFloat(max);
     let svgString = '';

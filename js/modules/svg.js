@@ -1,3 +1,4 @@
+//funció per descarregar la imatge del gráfic
 export function dlImage(){
     let fileType = document.getElementById('fileType');
     let dlBTN = document.getElementById('dln-btn');
@@ -38,7 +39,7 @@ export function dlImage(){
         }
     });
 }
-
+//funció que crea les lineas de coordenades
 export function ejes(setter=true){
     let svgEjes = `
         <line x1="10%" y1="0" x2="10%" y2="90%" style="stroke:rgb(0,0,0);stroke-width:2" />
@@ -67,7 +68,7 @@ export function ejes(setter=true){
 
     return svgEjes;
 }
-
+//funció que mostra els valors del gráfic agafant com a referencia el valor máxim
 export function mostrarValores(value, setter=true, type=true){
     let svgNumbers = '';
     let maxNumber = parseFloat(value);

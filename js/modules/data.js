@@ -1,5 +1,6 @@
 export var data = new Array();
 
+//funció per mostrar les dades introduïdes per l'usuari en una taula.
 export function mostrarDatos(element){
     let tableHTML = '';
     let i = 0;
@@ -21,11 +22,12 @@ export function mostrarDatos(element){
     element.innerHTML = tableHTML;
     
 }
-
+ //funció per guardar les dades
 export function setSaveData(){
     localStorage.setItem('data', JSON.stringify(data));
 }
 
+//funció per esborrar les dades
 export function delData(index){
     data.splice(index, 1);
     console.log(data.length);
